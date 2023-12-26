@@ -1,0 +1,64 @@
+{
+  "compilerOptions": {
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "allowJs": true,
+    "resolveJsonModule": true,
+    "jsx": "preserve",
+    "jsxFactory": "h",
+    "jsxFragmentFactory": "Fragment",
+    "paths": {
+      "#imports": [
+        "/home/surge/projects/slang/slang_frontend/.nuxt/types/nitro-imports"
+      ],
+      "#paths": [
+        "/home/surge/projects/slang/slang_frontend/node_modules/nuxt/dist/core/runtime/nitro/paths"
+      ],
+      "~": [
+        "/home/surge/projects/slang/slang_frontend"
+      ],
+      "~/*": [
+        "/home/surge/projects/slang/slang_frontend/*"
+      ],
+      "@": [
+        "/home/surge/projects/slang/slang_frontend"
+      ],
+      "@/*": [
+        "/home/surge/projects/slang/slang_frontend/*"
+      ],
+      "~~": [
+        "/home/surge/projects/slang/slang_frontend"
+      ],
+      "~~/*": [
+        "/home/surge/projects/slang/slang_frontend/*"
+      ],
+      "@@": [
+        "/home/surge/projects/slang/slang_frontend"
+      ],
+      "@@/*": [
+        "/home/surge/projects/slang/slang_frontend/*"
+      ],
+      "assets": [
+        "/home/surge/projects/slang/slang_frontend/assets"
+      ],
+      "assets/*": [
+        "/home/surge/projects/slang/slang_frontend/assets/*"
+      ],
+      "public": [
+        "/home/surge/projects/slang/slang_frontend/public"
+      ],
+      "public/*": [
+        "/home/surge/projects/slang/slang_frontend/public/*"
+      ]
+    }
+  },
+  "include": [
+    "/home/surge/projects/slang/slang_frontend/.nuxt/types/nitro-nuxt.d.ts",
+    "./types/nitro.d.ts",
+    "../**/*",
+    "../server/**/*"
+  ]
+}

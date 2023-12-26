@@ -1,0 +1,43 @@
+@import "./vars.css";
+
+/* TODO global light mode */
+
+html, body {
+    background: #373814;
+    height: 100%;
+    overflow: hidden;
+}
+
+html, body, h1, h2, h3, h4, h5, h6, p {
+    margin: 0;
+    padding: 0;
+
+    color: var(--text-dark);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+a {
+    color: var(--text-dark);
+    text-decoration: none;
+
+    transition-property: color, text-decoration;
+    transition-duration: 100ms;
+}
+
+a:hover {
+    color: var(--text-link-hover);
+    text-decoration: underline;
+}
+
+.flex-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.flex-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+/*Custom theming*/
