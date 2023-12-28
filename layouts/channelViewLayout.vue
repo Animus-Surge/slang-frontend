@@ -1,5 +1,3 @@
-<!--Group layout, used within group pages-->
-
 <template>
   <div class="root">
     <ChannelBar />
@@ -11,9 +9,4 @@
 </script>
 
 <style scoped>
-div.root {
-  margin: 3rem 6rem;
-  text-align: center;
-  height: 100%;
-}
 </style>

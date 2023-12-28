@@ -11,11 +11,13 @@
   "devDependencies": {
     "@nuxt/devtools": "latest",
     "@types/node": "^18.17.1",
+    "@types/ws": "^8.5.10",
     "nuxt": "^3.6.5"
   },
   "dependencies": {
     "animate.css": "^4.1.1",
     "bootstrap-icons": "^1.11.2",
-    "websocket": "^1.0.34"
+    "websocket": "^1.0.34",
+    "ws": "^8.16.0"
   }
 }

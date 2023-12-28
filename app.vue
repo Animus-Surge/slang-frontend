@@ -1,17 +1,46 @@
-<script setup lang="ts">
-
-</script>
-
 <template>
   <div class="app-main">
     <Navbar />
     <ProfilePopout />
-    <ChannelBar /> <!--TODO: move to layout-->
     <NuxtLayout>
       <NuxtPage />
     </NuxtLayout>
   </div>
 </template>
+
+<script setup lang='ts'>
+//Websocket implementation
+// import { WebSocket } from 'ws' 
+
+const socket = ref<WebSocket | null>(null)
+
+const openSocket = () => {
+  socket.value = new WebSocket('ws://localhost:3100')
+  socket.value.onopen = (e) => {
+    console.log('Connected')
+    socket.value!.send('Hello, world!')
+  }
+  socket.value.onerror = (e) => {
+    console.error(e)
+  }
+  socket.value.onmessage = (e) => {
+    console.log(e.data)
+  }
+  socket.value.onclose = (e) => {
+    console.log('Disconnected')
+  }
+  return socket
+}
+
+onMounted(() => {
+  openSocket()
+})
+
+onBeforeUnmount(() => {
+  socket.value?.close()
+})
+
+</script>
 
 <style scoped>
 div.app-main {

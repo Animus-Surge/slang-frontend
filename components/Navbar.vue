@@ -38,11 +38,11 @@ const toggleProfilePopout = () => {
 		<div class="bigscreen">
 
 			<div class="linkgroup">
-				<NuxtLink href="/" class="nav-button" :class="{active: currentPageIndex==-1}">
+				<NuxtLink href="/" class="nav-button" :class="{active: currentPageIndex===-1}">
 					<i class="bi bi-house"></i>
 					<span class="tooltip">Dashboard</span>
 				</NuxtLink>
-				<NuxtLink class="nav-button" :class="{active: currentPageIndex===2}">
+				<NuxtLink class="nav-button" :class="{active: currentPageIndex===-2}">
 					<i class="bi bi-people"></i>
 					<span class="notification-badge" v-if="friendRequestCount!==0">{{ friendRequestCount }}</span>
 					<span class="tooltip">Friends</span>
@@ -51,7 +51,7 @@ const toggleProfilePopout = () => {
 					<i class="bi bi-search"></i>
 					<span class="tooltip">Search</span>
 				</NuxtLink>
-				<a class="nav-button" :class="{active: currentPageIndex==-3}">
+				<a class="nav-button" :class="{active: currentPageIndex===-3}">
 					<i class="bi bi-bell"></i>
 					<span class="notification-badge" v-if="notificationCount!==0">{{ notificationCount }}</span>
 					<span class="tooltip">Notifications</span>

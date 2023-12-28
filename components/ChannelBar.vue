@@ -1,5 +1,5 @@
 <template>
-  <div class="channelbar" v-if="showChannelBar">
+  <div class="channelbar">
     <div class="header">
       <h3>Group Name</h3>
     </div>
@@ -14,7 +14,6 @@
 import { ref, onMounted } from 'vue'
 
 const currentPageIndex = useState('currentPageIndex', () => 0)
-const showChannelBar = useState('showChannelBar', () => false)
 </script>
 
 <style scoped>
