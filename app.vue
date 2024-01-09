@@ -2,6 +2,7 @@
   <div class="app-main">
     <Navbar />
     <ProfilePopout />
+    <ChannelBar v-if="showChannelBar" />
     <NuxtLayout>
       <NuxtPage />
     </NuxtLayout>
@@ -9,13 +10,13 @@
 </template>
 
 <script setup lang='ts'>
-//Websocket implementation
-// import { WebSocket } from 'ws' 
-
 const socket = ref<WebSocket | null>(null)
 
+const showChannelBar = useState('showChannelBar', () => false)
+
+//Websocket handler
 const openSocket = () => {
-  socket.value = new WebSocket('ws://localhost:3100')
+  socket.value = new WebSocket('ws://localhost:8000/sock')
   socket.value.onopen = (e) => {
     console.log('Connected')
     socket.value!.send('Hello, world!')
@@ -33,7 +34,7 @@ const openSocket = () => {
 }
 
 onMounted(() => {
-  openSocket()
+  openSocket() //TODO: don't let anything else load until socket is connected
 })
 
 onBeforeUnmount(() => {

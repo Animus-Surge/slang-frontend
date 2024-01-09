@@ -41,10 +41,6 @@ const currentPageIndex = useState('currentPageIndex', () => 0)
 const showChannelBar = useState('showChannelBar', () => false)
 const showProfilePopout = useState('showProfilePopout', () => false)
 
-definePageMeta({
-  layout: 'default'
-})
-
 onMounted(() => {
   currentPageIndex.value = 0
   showChannelBar.value = false

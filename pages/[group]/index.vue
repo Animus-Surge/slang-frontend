@@ -13,10 +13,6 @@ const showProfilePopout = useState('showProfilePopout', () => false)
 
 const route = useRoute()
 
-definePageMeta({
-  layout: 'group-view-layout'
-})
-
 onMounted(() => {
   currentPageIndex.value = Number.parseInt(route.params.group[0])
   showChannelBar.value = true
