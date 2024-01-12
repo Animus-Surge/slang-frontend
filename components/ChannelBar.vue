@@ -24,7 +24,8 @@ div.channelbar {
   left: 0;
   margin-left: 4rem;
   padding: 8px;
-
+  z-index: 4;
+  
   overflow-x: hidden;
   overflow-y: scroll;
 

@@ -9,6 +9,9 @@ export default defineNuxtConfig({
     // 'animate.css',
     '~/assets/bootstrap-icons.min.css',
   ],
+  modules: [
+    '@pinia/nuxt'
+  ],
   runtimeConfig: {
     public: {
       firebaseKey: process.env.FIREBASE_WEB

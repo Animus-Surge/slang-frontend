@@ -7,7 +7,11 @@ declare global {
   const clearNuxtData: typeof import('../../node_modules/nuxt/dist/app')['clearNuxtData']
   const clearNuxtState: typeof import('../../node_modules/nuxt/dist/app')['clearNuxtState']
   const computed: typeof import('vue')['computed']
+  const createActionMessage: typeof import('../../utils/createActionMessage')['default']
   const createError: typeof import('../../node_modules/nuxt/dist/app')['createError']
+  const createMessageCreateMessage: typeof import('../../utils/createMessageCreateMessage')['default']
+  const createPingMessage: typeof import('../../utils/createPingMessage')['default']
+  const createWebSocket: typeof import('../../utils/createWebSocket')['default']
   const customRef: typeof import('vue')['customRef']
   const defineAppConfig: typeof import('../../node_modules/nuxt/dist/app')['defineAppConfig']
   const defineAsyncComponent: typeof import('vue')['defineAsyncComponent']
@@ -142,7 +146,11 @@ declare module 'vue' {
     readonly clearNuxtData: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app')['clearNuxtData']>
     readonly clearNuxtState: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app')['clearNuxtState']>
     readonly computed: UnwrapRef<typeof import('vue')['computed']>
+    readonly createActionMessage: UnwrapRef<typeof import('../../utils/createActionMessage')['default']>
     readonly createError: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app')['createError']>
+    readonly createMessageCreateMessage: UnwrapRef<typeof import('../../utils/createMessageCreateMessage')['default']>
+    readonly createPingMessage: UnwrapRef<typeof import('../../utils/createPingMessage')['default']>
+    readonly createWebSocket: UnwrapRef<typeof import('../../utils/createWebSocket')['default']>
     readonly customRef: UnwrapRef<typeof import('vue')['customRef']>
     readonly defineAppConfig: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app')['defineAppConfig']>
     readonly defineAsyncComponent: UnwrapRef<typeof import('vue')['defineAsyncComponent']>
@@ -271,7 +279,11 @@ declare module '@vue/runtime-core' {
     readonly clearNuxtData: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app')['clearNuxtData']>
     readonly clearNuxtState: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app')['clearNuxtState']>
     readonly computed: UnwrapRef<typeof import('vue')['computed']>
+    readonly createActionMessage: UnwrapRef<typeof import('../../utils/createActionMessage')['default']>
     readonly createError: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app')['createError']>
+    readonly createMessageCreateMessage: UnwrapRef<typeof import('../../utils/createMessageCreateMessage')['default']>
+    readonly createPingMessage: UnwrapRef<typeof import('../../utils/createPingMessage')['default']>
+    readonly createWebSocket: UnwrapRef<typeof import('../../utils/createWebSocket')['default']>
     readonly customRef: UnwrapRef<typeof import('vue')['customRef']>
     readonly defineAppConfig: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app')['defineAppConfig']>
     readonly defineAsyncComponent: UnwrapRef<typeof import('vue')['defineAsyncComponent']>

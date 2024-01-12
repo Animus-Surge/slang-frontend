@@ -10,36 +10,14 @@
 </template>
 
 <script setup lang='ts'>
-const socket = ref<WebSocket | null>(null)
+import { createSocket } from 'dgram';
+
+const connected = ref(false)
+const ws = createWebSocket()
 
 const showChannelBar = useState('showChannelBar', () => false)
+const socket = useState('socket', () => ws)
 
-//Websocket handler
-const openSocket = () => {
-  socket.value = new WebSocket('ws://localhost:8000/sock')
-  socket.value.onopen = (e) => {
-    console.log('Connected')
-    socket.value!.send('Hello, world!')
-  }
-  socket.value.onerror = (e) => {
-    console.error(e)
-  }
-  socket.value.onmessage = (e) => {
-    console.log(e.data)
-  }
-  socket.value.onclose = (e) => {
-    console.log('Disconnected')
-  }
-  return socket
-}
-
-onMounted(() => {
-  openSocket() //TODO: don't let anything else load until socket is connected
-})
-
-onBeforeUnmount(() => {
-  socket.value?.close()
-})
 
 </script>
 
