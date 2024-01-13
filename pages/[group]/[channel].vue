@@ -28,7 +28,7 @@
 <script setup lang='ts'>
 import { ref, onMounted } from 'vue'
 
-const socket = useState('socket', () => null)
+// const socket = useState('socket', () => null)
 
 const currentPageIndex = useState('currentPageIndex', () => 0)
 const showChannelBar = useState('showChannelBar', () => false)
@@ -36,6 +36,7 @@ const showProfilePopout = useState('showProfilePopout', () => false)
 
 const msgBox = ref(null)
 const route = useRoute()
+const {$sendMessage} = useNuxtApp()
 
 var message = ""
 
@@ -50,10 +51,10 @@ const sendMsg = () => {
   var msg = createMessageCreateMessage(1, message, gid, cid)
 
   console.log(msg)
-  console.log(socket.value)
+  // console.log(socket.value)
 
   // TODO: check socket status (shouldn't need to, but do it anyway)
-  // socket.value?.send(JSON.stringify(msg))
+  $sendMessage(msg)
 
   box.value = ''
 }

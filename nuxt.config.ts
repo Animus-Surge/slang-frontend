@@ -1,5 +1,3 @@
-import * as path from 'path'
-
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: true }, //DEVELOPMENT MODE
@@ -9,8 +7,8 @@ export default defineNuxtConfig({
     // 'animate.css',
     '~/assets/bootstrap-icons.min.css',
   ],
-  modules: [
-    '@pinia/nuxt'
+  plugins: [
+    '~/plugins/socketHandler.ts'
   ],
   runtimeConfig: {
     public: {

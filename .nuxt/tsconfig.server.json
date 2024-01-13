@@ -8,57 +8,65 @@
     "allowJs": true,
     "resolveJsonModule": true,
     "jsx": "preserve",
+    "allowSyntheticDefaultImports": true,
     "jsxFactory": "h",
     "jsxFragmentFactory": "Fragment",
     "paths": {
       "#imports": [
-        "/home/surge/projects/slang/slang_frontend/.nuxt/types/nitro-imports"
+        "./types/nitro-imports"
       ],
       "#paths": [
-        "/home/surge/projects/slang/slang_frontend/node_modules/nuxt/dist/core/runtime/nitro/paths"
+        "../node_modules/nuxt/dist/core/runtime/nitro/paths"
       ],
       "~": [
-        "/home/surge/projects/slang/slang_frontend"
+        "./.."
       ],
       "~/*": [
-        "/home/surge/projects/slang/slang_frontend/*"
+        "../*"
       ],
       "@": [
-        "/home/surge/projects/slang/slang_frontend"
+        "./.."
       ],
       "@/*": [
-        "/home/surge/projects/slang/slang_frontend/*"
+        "../*"
       ],
       "~~": [
-        "/home/surge/projects/slang/slang_frontend"
+        "./.."
       ],
       "~~/*": [
-        "/home/surge/projects/slang/slang_frontend/*"
+        "../*"
       ],
       "@@": [
-        "/home/surge/projects/slang/slang_frontend"
+        "./.."
       ],
       "@@/*": [
-        "/home/surge/projects/slang/slang_frontend/*"
+        "../*"
       ],
       "assets": [
-        "/home/surge/projects/slang/slang_frontend/assets"
+        "../assets"
       ],
       "assets/*": [
-        "/home/surge/projects/slang/slang_frontend/assets/*"
+        "../assets/*"
       ],
       "public": [
-        "/home/surge/projects/slang/slang_frontend/public"
+        "../public"
       ],
       "public/*": [
-        "/home/surge/projects/slang/slang_frontend/public/*"
+        "../public/*"
       ]
     }
   },
   "include": [
-    "/home/surge/projects/slang/slang_frontend/.nuxt/types/nitro-nuxt.d.ts",
+    "./types/nitro-nuxt.d.ts",
+    "../node_modules/@nuxt/devtools/runtime/server",
+    "../node_modules/@nuxt/telemetry/runtime/server",
     "./types/nitro.d.ts",
     "../**/*",
     "../server/**/*"
+  ],
+  "exclude": [
+    "../node_modules",
+    "../node_modules/nuxt/node_modules",
+    "../dist"
   ]
 }
