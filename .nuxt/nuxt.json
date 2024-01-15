@@ -1,7 +1,7 @@
 {
-  "_hash": "eNe5NSuRQl",
+  "_hash": "BIRsuCRYcF",
   "project": {
-    "rootDir": "/home/surge/projects/slang/slang-frontend"
+    "rootDir": "/home/surge/projects/slang/slang_frontend"
   },
   "versions": {
     "nuxt": "3.9.1"

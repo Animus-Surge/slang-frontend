@@ -45,8 +45,9 @@ onMounted(() => {
   })
 
   setInterval(() => {
-    if($hasOutgoing() && socket.readyState === socket.OPEN) {
-      var msg = $getOutgoingMessage()[0]
+    
+    if(hasOutgoing() && socket.readyState === socket.OPEN) {
+      var msg = retrieveFromOutgoing()
       console.log(msg)
       socket.send(JSON.stringify(msg))
     }

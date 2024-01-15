@@ -12,8 +12,8 @@
       <div v-for="msg in msgList" class="message"> <!--TODO: msgList-->
         <img src="https://placehold.co/50x50" />
         <div class="msgtext">
-          <span class="msgauthor">Display Name</span>
-          <span class="msgcontent">Blah blah blah</span>
+          <span class="msgauthor">{{ msg.author }}</span><!--TODO: author displayname stuff (might use a cache)-->
+          <span class="msgcontent">{{ msg.content }}</span>
         </div>
       </div>
     </div>
@@ -36,11 +36,10 @@ const showProfilePopout = useState('showProfilePopout', () => false)
 
 const msgBox = ref(null)
 const route = useRoute()
-const {$sendMessage} = useNuxtApp()
 
 var message = ""
 
-var msgList: Object[] = [] //TODO: figure out how to do global classes
+var msgList: any[] = [] //TODO: figure out how to do global classes
 
 const sendMsg = () => {
   var box: HTMLInputElement = msgBox.value!
@@ -50,11 +49,10 @@ const sendMsg = () => {
 
   var msg = createMessageCreateMessage(1, message, gid, cid)
 
-  console.log(msg)
-  // console.log(socket.value)
+  pushOutgoing(msg)
 
-  // TODO: check socket status (shouldn't need to, but do it anyway)
-  $sendMessage(msg)
+  msgList.push(msg.data)
+  console.log(msgList)
 
   box.value = ''
 }
@@ -63,6 +61,12 @@ onMounted(() => {
   currentPageIndex.value = -1 //TODO
   showChannelBar.value = true
   showProfilePopout.value = false
+
+  setInterval(() => {
+    if (hasIncoming()) {
+      msgList.push(retrieveFromIncoming()!)
+    }
+  })
 })
 </script>
 

@@ -35,7 +35,9 @@ declare global {
   const getCurrentScope: typeof import('../../node_modules/vue')['getCurrentScope']
   const getRouteRules: typeof import('../../node_modules/nuxt/dist/app/composables/manifest')['getRouteRules']
   const h: typeof import('../../node_modules/vue')['h']
+  const hasIncoming: typeof import('../../composables/websocketManager')['hasIncoming']
   const hasInjectionContext: typeof import('../../node_modules/vue')['hasInjectionContext']
+  const hasOutgoing: typeof import('../../composables/websocketManager')['hasOutgoing']
   const inject: typeof import('../../node_modules/vue')['inject']
   const injectHead: typeof import('../../node_modules/@unhead/vue')['injectHead']
   const isNuxtError: typeof import('../../node_modules/nuxt/dist/app/composables/error')['isNuxtError']
@@ -50,6 +52,7 @@ declare global {
   const loadPayload: typeof import('../../node_modules/nuxt/dist/app/composables/payload')['loadPayload']
   const markRaw: typeof import('../../node_modules/vue')['markRaw']
   const mergeModels: typeof import('../../node_modules/vue')['mergeModels']
+  const messageHandler: typeof import('../../composables/websocketManager')['messageHandler']
   const navigateTo: typeof import('../../node_modules/nuxt/dist/app/composables/router')['navigateTo']
   const nextTick: typeof import('../../node_modules/vue')['nextTick']
   const onActivated: typeof import('../../node_modules/vue')['onActivated']
@@ -75,6 +78,8 @@ declare global {
   const prerenderRoutes: typeof import('../../node_modules/nuxt/dist/app/composables/ssr')['prerenderRoutes']
   const provide: typeof import('../../node_modules/vue')['provide']
   const proxyRefs: typeof import('../../node_modules/vue')['proxyRefs']
+  const pushIncoming: typeof import('../../composables/websocketManager')['pushIncoming']
+  const pushOutgoing: typeof import('../../composables/websocketManager')['pushOutgoing']
   const reactive: typeof import('../../node_modules/vue')['reactive']
   const readonly: typeof import('../../node_modules/vue')['readonly']
   const ref: typeof import('../../node_modules/vue')['ref']
@@ -82,6 +87,8 @@ declare global {
   const reloadNuxtApp: typeof import('../../node_modules/nuxt/dist/app/composables/chunk')['reloadNuxtApp']
   const requestIdleCallback: typeof import('../../node_modules/nuxt/dist/app/compat/idle-callback')['requestIdleCallback']
   const resolveComponent: typeof import('../../node_modules/vue')['resolveComponent']
+  const retrieveFromIncoming: typeof import('../../composables/websocketManager')['retrieveFromIncoming']
+  const retrieveFromOutgoing: typeof import('../../composables/websocketManager')['retrieveFromOutgoing']
   const setPageLayout: typeof import('../../node_modules/nuxt/dist/app/composables/router')['setPageLayout']
   const setResponseStatus: typeof import('../../node_modules/nuxt/dist/app/composables/ssr')['setResponseStatus']
   const shallowReactive: typeof import('../../node_modules/vue')['shallowReactive']
@@ -184,7 +191,9 @@ declare module 'vue' {
     readonly getCurrentScope: UnwrapRef<typeof import('../../node_modules/vue')['getCurrentScope']>
     readonly getRouteRules: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/manifest')['getRouteRules']>
     readonly h: UnwrapRef<typeof import('../../node_modules/vue')['h']>
+    readonly hasIncoming: UnwrapRef<typeof import('../../composables/websocketManager')['hasIncoming']>
     readonly hasInjectionContext: UnwrapRef<typeof import('../../node_modules/vue')['hasInjectionContext']>
+    readonly hasOutgoing: UnwrapRef<typeof import('../../composables/websocketManager')['hasOutgoing']>
     readonly inject: UnwrapRef<typeof import('../../node_modules/vue')['inject']>
     readonly injectHead: UnwrapRef<typeof import('../../node_modules/@unhead/vue')['injectHead']>
     readonly isNuxtError: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/error')['isNuxtError']>
@@ -199,6 +208,7 @@ declare module 'vue' {
     readonly loadPayload: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/payload')['loadPayload']>
     readonly markRaw: UnwrapRef<typeof import('../../node_modules/vue')['markRaw']>
     readonly mergeModels: UnwrapRef<typeof import('../../node_modules/vue')['mergeModels']>
+    readonly messageHandler: UnwrapRef<typeof import('../../composables/websocketManager')['messageHandler']>
     readonly navigateTo: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/router')['navigateTo']>
     readonly nextTick: UnwrapRef<typeof import('../../node_modules/vue')['nextTick']>
     readonly onActivated: UnwrapRef<typeof import('../../node_modules/vue')['onActivated']>
@@ -224,6 +234,8 @@ declare module 'vue' {
     readonly prerenderRoutes: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/ssr')['prerenderRoutes']>
     readonly provide: UnwrapRef<typeof import('../../node_modules/vue')['provide']>
     readonly proxyRefs: UnwrapRef<typeof import('../../node_modules/vue')['proxyRefs']>
+    readonly pushIncoming: UnwrapRef<typeof import('../../composables/websocketManager')['pushIncoming']>
+    readonly pushOutgoing: UnwrapRef<typeof import('../../composables/websocketManager')['pushOutgoing']>
     readonly reactive: UnwrapRef<typeof import('../../node_modules/vue')['reactive']>
     readonly readonly: UnwrapRef<typeof import('../../node_modules/vue')['readonly']>
     readonly ref: UnwrapRef<typeof import('../../node_modules/vue')['ref']>
@@ -231,6 +243,8 @@ declare module 'vue' {
     readonly reloadNuxtApp: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/chunk')['reloadNuxtApp']>
     readonly requestIdleCallback: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/compat/idle-callback')['requestIdleCallback']>
     readonly resolveComponent: UnwrapRef<typeof import('../../node_modules/vue')['resolveComponent']>
+    readonly retrieveFromIncoming: UnwrapRef<typeof import('../../composables/websocketManager')['retrieveFromIncoming']>
+    readonly retrieveFromOutgoing: UnwrapRef<typeof import('../../composables/websocketManager')['retrieveFromOutgoing']>
     readonly setPageLayout: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/router')['setPageLayout']>
     readonly setResponseStatus: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/ssr')['setResponseStatus']>
     readonly shallowReactive: UnwrapRef<typeof import('../../node_modules/vue')['shallowReactive']>
@@ -326,7 +340,9 @@ declare module '@vue/runtime-core' {
     readonly getCurrentScope: UnwrapRef<typeof import('../../node_modules/vue')['getCurrentScope']>
     readonly getRouteRules: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/manifest')['getRouteRules']>
     readonly h: UnwrapRef<typeof import('../../node_modules/vue')['h']>
+    readonly hasIncoming: UnwrapRef<typeof import('../../composables/websocketManager')['hasIncoming']>
     readonly hasInjectionContext: UnwrapRef<typeof import('../../node_modules/vue')['hasInjectionContext']>
+    readonly hasOutgoing: UnwrapRef<typeof import('../../composables/websocketManager')['hasOutgoing']>
     readonly inject: UnwrapRef<typeof import('../../node_modules/vue')['inject']>
     readonly injectHead: UnwrapRef<typeof import('../../node_modules/@unhead/vue')['injectHead']>
     readonly isNuxtError: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/error')['isNuxtError']>
@@ -341,6 +357,7 @@ declare module '@vue/runtime-core' {
     readonly loadPayload: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/payload')['loadPayload']>
     readonly markRaw: UnwrapRef<typeof import('../../node_modules/vue')['markRaw']>
     readonly mergeModels: UnwrapRef<typeof import('../../node_modules/vue')['mergeModels']>
+    readonly messageHandler: UnwrapRef<typeof import('../../composables/websocketManager')['messageHandler']>
     readonly navigateTo: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/router')['navigateTo']>
     readonly nextTick: UnwrapRef<typeof import('../../node_modules/vue')['nextTick']>
     readonly onActivated: UnwrapRef<typeof import('../../node_modules/vue')['onActivated']>
@@ -366,6 +383,8 @@ declare module '@vue/runtime-core' {
     readonly prerenderRoutes: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/ssr')['prerenderRoutes']>
     readonly provide: UnwrapRef<typeof import('../../node_modules/vue')['provide']>
     readonly proxyRefs: UnwrapRef<typeof import('../../node_modules/vue')['proxyRefs']>
+    readonly pushIncoming: UnwrapRef<typeof import('../../composables/websocketManager')['pushIncoming']>
+    readonly pushOutgoing: UnwrapRef<typeof import('../../composables/websocketManager')['pushOutgoing']>
     readonly reactive: UnwrapRef<typeof import('../../node_modules/vue')['reactive']>
     readonly readonly: UnwrapRef<typeof import('../../node_modules/vue')['readonly']>
     readonly ref: UnwrapRef<typeof import('../../node_modules/vue')['ref']>
@@ -373,6 +392,8 @@ declare module '@vue/runtime-core' {
     readonly reloadNuxtApp: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/chunk')['reloadNuxtApp']>
     readonly requestIdleCallback: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/compat/idle-callback')['requestIdleCallback']>
     readonly resolveComponent: UnwrapRef<typeof import('../../node_modules/vue')['resolveComponent']>
+    readonly retrieveFromIncoming: UnwrapRef<typeof import('../../composables/websocketManager')['retrieveFromIncoming']>
+    readonly retrieveFromOutgoing: UnwrapRef<typeof import('../../composables/websocketManager')['retrieveFromOutgoing']>
     readonly setPageLayout: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/router')['setPageLayout']>
     readonly setResponseStatus: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/ssr')['setResponseStatus']>
     readonly shallowReactive: UnwrapRef<typeof import('../../node_modules/vue')['shallowReactive']>

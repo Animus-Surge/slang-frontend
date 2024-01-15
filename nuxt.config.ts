@@ -7,9 +7,6 @@ export default defineNuxtConfig({
     // 'animate.css',
     '~/assets/bootstrap-icons.min.css',
   ],
-  plugins: [
-    '~/plugins/socketHandler.ts'
-  ],
   runtimeConfig: {
     public: {
       firebaseKey: process.env.FIREBASE_WEB
