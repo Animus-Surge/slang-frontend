@@ -35,8 +35,11 @@ onMounted(() => {
     if (!msg.type) return // Consider it invalid, ALL messages coming through the websocket will have this type field
 
     switch (msg.type) {
-      case 'msg':
+      case 'ack':
         console.log(msg.data)
+        break
+      case 'msg':
+        
         break //TODO
       case 'pong':
         console.log('Received pong response!')
@@ -45,7 +48,6 @@ onMounted(() => {
   })
 
   setInterval(() => {
-    
     if(hasOutgoing() && socket.readyState === socket.OPEN) {
       var msg = retrieveFromOutgoing()
       console.log(msg)

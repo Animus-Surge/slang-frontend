@@ -9,10 +9,10 @@
       </div>
     </div>
     <div class="messagepanel">
-      <div v-for="msg in msgList" class="message"> <!--TODO: msgList-->
+      <div v-for="msg in msgList" :key="msg.id" class="message"> <!--TODO: msgList-->
         <img src="https://placehold.co/50x50" />
         <div class="msgtext">
-          <span class="msgauthor">{{ msg.author }}</span><!--TODO: author displayname stuff (might use a cache)-->
+          <span class="msgauthor">Surge</span>
           <span class="msgcontent">{{ msg.content }}</span>
         </div>
       </div>
@@ -28,33 +28,33 @@
 <script setup lang='ts'>
 import { ref, onMounted } from 'vue'
 
-// const socket = useState('socket', () => null)
-
 const currentPageIndex = useState('currentPageIndex', () => 0)
 const showChannelBar = useState('showChannelBar', () => false)
 const showProfilePopout = useState('showProfilePopout', () => false)
 
-const msgBox = ref(null)
+const user = useState('user') //TODO
+
 const route = useRoute()
 
-var message = ""
-
-var msgList: any[] = [] //TODO: figure out how to do global classes
+var message = ''
+var msgList = ref<any[]>([])
+var currentID = ref(0)
 
 const sendMsg = () => {
-  var box: HTMLInputElement = msgBox.value!
-
   var gid = parseInt(route.params.group[0])
   var cid = parseInt(route.params.channel[0])
 
   var msg = createMessageCreateMessage(1, message, gid, cid)
 
+  console.log(msg)
   pushOutgoing(msg)
 
-  msgList.push(msg.data)
-  console.log(msgList)
+  msg.data['id'] = currentID.value
+  currentID.value++
 
-  box.value = ''
+  msgList.value.push(msg.data)
+
+  message = ''
 }
 
 onMounted(() => {
@@ -64,7 +64,11 @@ onMounted(() => {
 
   setInterval(() => {
     if (hasIncoming()) {
-      msgList.push(retrieveFromIncoming()!)
+      var inmsg: Object = retrieveFromIncoming()!
+      inmsg.data['id'] = currentID.value
+      currentID.value++
+      console.log(inmsg)
+      msgList.value.push(inmsg)
     }
   })
 })
