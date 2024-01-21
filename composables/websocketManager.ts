@@ -1,5 +1,14 @@
-var inBuffer: Object[] = []
-var outBuffer: Object[] = []
+export class Message {
+  type: string
+  data: any
+  constructor(type: string, data: any) {
+    this.type = type
+    this.data = data
+  }
+}
+
+var inBuffer: typeof Message[] = []
+var outBuffer: typeof Message[] = []
 
 export const retrieveFromIncoming = () => {
   if (!hasIncoming()) return undefined
@@ -18,8 +27,8 @@ export const hasOutgoing = () => {
 }
 
 export const pushIncoming = (data: Object) => {
-  inBuffer.push(data)
+  // inBuffer.push(data)
 }
 export const pushOutgoing = (data: Object) => {
-  outBuffer.push(data)
+  // outBuffer.push(data)
 }

@@ -64,8 +64,8 @@ onMounted(() => {
 
   setInterval(() => {
     if (hasIncoming()) {
-      var inmsg: Object = retrieveFromIncoming()!
-      inmsg.data['id'] = currentID.value
+      var inmsg: typeof Message = retrieveFromIncoming()!
+      inmsg.data['id'] = currentID.value //TODO: stop needing to do this
       currentID.value++
       console.log(inmsg)
       msgList.value.push(inmsg)

@@ -7,12 +7,12 @@
     "module": true,
     "resourceType": "script"
   },
-  "/home/surge/projects/slang/slang-frontend/node_modules/nuxt/dist/app/entry.js": {
+  "/home/surge/projects/slang/slang_frontend/node_modules/nuxt/dist/app/entry.js": {
     "resourceType": "script",
     "module": true,
     "prefetch": true,
     "preload": true,
     "isEntry": true,
-    "file": "/home/surge/projects/slang/slang-frontend/node_modules/nuxt/dist/app/entry.js"
+    "file": "/home/surge/projects/slang/slang_frontend/node_modules/nuxt/dist/app/entry.js"
   }
 }
