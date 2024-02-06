@@ -1,9 +1,11 @@
 export class Message {
   type: string
   data: any
+  id: number
   constructor(type: string, data: any) {
     this.type = type
     this.data = data
+    this.id = -1 //Temporary value, gets set in channels
   }
 }
 

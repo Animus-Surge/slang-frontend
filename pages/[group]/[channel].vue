@@ -58,7 +58,9 @@ const sendMsg = () => {
 }
 
 onMounted(() => {
-  currentPageIndex.value = -1 //TODO
+  console.log(route.params.group)
+
+  currentPageIndex.value = Number.parseInt(route.params.group[0])
   showChannelBar.value = true
   showProfilePopout.value = false
 
@@ -182,8 +184,8 @@ div.message {
 
 div.message img {
   border-radius: 50%;
-  aspect-ratio: 1;
   width: 50px;
+  height: 50px;
 }
 
 div.msgtext {

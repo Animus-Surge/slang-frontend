@@ -1,37 +1,6 @@
 <template>
   <div class="root">
-    <h3>Dashboard</h3>
-    <div class="grid">
-      <div class="panel">
-        <h4>Recent Activity</h4>
-        <hr>
-        <div class="scroll">
-          <div class="entry">
-            
-          </div>
-        </div>
-      </div>
-      <div class="panel">
-        <h4>Your Feed</h4>
-        <hr>
-        <div class="scroll">
-          <div class="post">
-            <h4>Post Title</h4><br>
-            <p>Post Content</p>
-            <!--TODO-->
-          </div>
-        </div>
-      </div>
-      <div class="panel">
-        <h4>Quick Access</h4>
-        <hr>
-        <div class="scroll">
-          <div class="entry">
-
-          </div>
-        </div>
-      </div>
-    </div>
+    
   </div>
 </template>
 
@@ -42,7 +11,7 @@ const showChannelBar = useState('showChannelBar', () => false)
 const showProfilePopout = useState('showProfilePopout', () => false)
 
 onMounted(() => {
-  currentPageIndex.value = 0
+  currentPageIndex.value = -1
   showChannelBar.value = false
   showProfilePopout.value = false
 })

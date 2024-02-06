@@ -63,7 +63,7 @@ const toggleProfilePopout = () => {
 
 			<div class="linkgroup">
 				<!--Groups (and maybe pinned dms?)-->
-				<NuxtLink href="/1" class="nav-button"> <!--TODO: auto populate with database entry-->
+				<NuxtLink href="/1" class="nav-button" :class="currentPageIndex==1"> <!--TODO: auto populate with database entry-->
 					<img style="width: 100%; height: 100%;" src="https://via.placeholder.com/64x64" alt="Profile Picture" />
 				</NuxtLink>
 
@@ -190,6 +190,10 @@ a.nav-button img {
 }
 
 a.nav-button:hover img {
+	border-radius: 10px;
+}
+
+a.nav-button.active img {
 	border-radius: 10px;
 }
 

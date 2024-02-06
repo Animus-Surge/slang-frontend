@@ -38,7 +38,14 @@ username (username)
 <script setup lang="ts">
 let dataArray: any[] = []
 
+const currentPageIndex = useState('currentPageIndex', () => 0)
+const showChannelBar = useState('showChannelBar', () => false)
+const showProfilePopout = useState('showProfilePopout', () => false)
+
 onMounted(() => {
+  currentPageIndex.value = -2
+  showChannelBar.value = false
+  showProfilePopout.value = false
   //Get your friends list
 })
 </script>
@@ -46,6 +53,12 @@ onMounted(() => {
 <style scoped>
 div.root {
   text-align: center;
+}
+
+img.pfp {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
 }
 
 div.header {
